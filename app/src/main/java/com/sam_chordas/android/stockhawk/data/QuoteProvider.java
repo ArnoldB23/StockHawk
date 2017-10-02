@@ -15,8 +15,14 @@ public class QuoteProvider {
 
   static final Uri BASE_CONTENT_URI = Uri.parse("content://" + AUTHORITY);
 
+  public interface GraphType {
+    String MONTHORYEAR = "monthoryear";
+    String DAYS = "days";
+  }
+
   interface Path{
     String QUOTES = "quotes";
+    String GRAPH_STOCK = "graph_stock";
   }
 
   private static Uri buildUri(String... paths){
@@ -44,6 +50,28 @@ public class QuoteProvider {
     )
     public static Uri withSymbol(String symbol){
       return buildUri(Path.QUOTES, symbol);
+    }
+
+  }
+
+  @TableEndpoint(table = QuoteDatabase.GRAPH_STOCK)
+  public static class Graph_Stock{
+    @ContentUri(
+            path = Path.GRAPH_STOCK,
+            type = "vnd.android.cursor.dir/graph_stock"
+    )
+    public static final Uri CONTENT_URI = buildUri(Path.GRAPH_STOCK);
+
+
+    @InexactContentUri(
+            name = "GRAPH_STOCK_SYMBOL",
+            path = Path.GRAPH_STOCK + "/*",
+            type = "vnd.android.cursor.item/graph_stock",
+            whereColumn = GraphColumns.SYMBOL,
+            pathSegment = 1
+    )
+    public static Uri withStockSymbol(String stockSymbol){
+      return buildUri(Path.GRAPH_STOCK, stockSymbol);
     }
   }
 }

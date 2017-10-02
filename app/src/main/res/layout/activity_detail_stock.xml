@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:weightSum="1"
+              android:id="@+id/detail_linearlayout"
+              android:background="@color/material_light_blue_50">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.68">
+
+        <com.github.mikephil.charting.charts.LineChart
+            android:id="@+id/graph_linechart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="invisible"
+            android:contentDescription="@string/detail_graph_content"
+            />
+        <ProgressBar
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:id="@+id/graph_progressbar"
+            android:indeterminate="true"
+            android:layout_gravity="center"
+            android:visibility="invisible"/>
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="locale"
+        android:divider="?android:dividerHorizontal"
+        android:visibility="invisible"
+        android:id="@+id/grap_selection_linearlayout">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:id="@+id/one_day_textview"
+            android:text="@string/detail_1d_selection"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:textSize="20sp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/detail_1d_selection_content"/>
+
+        <TextView
+            android:text="@string/detail_5d_selection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/five_day_textview"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/detail_5d_selection_content"/>
+
+        <TextView
+            android:text="@string/detail_1m_selection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/one_month_textview"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/detail_1m_selection_content"/>
+
+        <TextView
+            android:text="@string/detail_1yr_selection"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:id="@+id/one_year_textView"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:clickable="true"
+            android:contentDescription="@string/detail_1yr_selection_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingRight="20dp"
+        android:gravity="center_vertical"
+        android:paddingTop="16dp"
+        android:visibility="invisible"
+        android:id="@+id/detail_list_item_quote">
+
+
+        <TextView
+            android:id="@+id/detail_stock_symbol"
+            style="@style/StockSymbolTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start|center_vertical"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="@string/detail_symbol_content"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="end">
+
+            <TextView
+                android:id="@+id/detail_bid_price"
+                style="@style/BidPriceTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="8dp"
+                android:paddingRight="8dp"/>
+
+            <TextView
+                android:id="@+id/detail_change"
+                android:background="@drawable/percent_change_pill"
+                style="@style/PercentChangeTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="4dp"
+                android:paddingStart="4dp"
+                android:paddingRight="4dp"
+                android:paddingEnd="4dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingLeft="20dp"
+        android:paddingStart="20dp"
+        android:paddingTop="0dp"
+        android:visibility="invisible"
+        android:id="@+id/stock_name"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.32"
+        android:visibility="invisible"
+        android:id="@+id/graph_extra_details_layout">
+
+        <TextView
+            android:text="@string/detail_open_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="20dp"
+            android:paddingStart="20dp"
+            android:id="@+id/open_title_textview"/>
+
+        <TextView
+            android:text="@string/detail_high_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/open_title_textview"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="20dp"
+            android:paddingStart="20dp"
+            android:id="@+id/high_title_textview"/>
+
+        <TextView
+            android:text="@string/detail_low_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/high_title_textview"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:paddingLeft="20dp"
+            android:paddingStart="20dp"
+            android:id="@+id/low_title_textview"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/open_title_textview"
+            android:layout_toStartOf="@+id/mkt_cap_title_textview"
+            android:layout_toLeftOf="@+id/mkt_cap_title_textview"
+            android:paddingRight="12dp"
+            android:paddingEnd="12dp"
+            android:id="@+id/open_value_textview"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/open_value_textview"
+            android:layout_alignBottom="@+id/high_title_textview"
+            android:layout_toLeftOf="@+id/pe_ratio_title_textview"
+            android:layout_toStartOf="@+id/pe_ratio_title_textview"
+            android:paddingRight="12dp"
+            android:paddingEnd="12dp"
+            android:id="@+id/high_value_textview"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/low_title_textview"
+            android:layout_toLeftOf="@+id/div_yield_title_textview"
+            android:layout_toStartOf="@+id/div_yield_title_textview"
+            android:paddingRight="12dp"
+            android:paddingEnd="12dp"
+            android:id="@+id/low_value_textview"/>
+
+        <TextView
+            android:text="@string/detail_mkt_cap_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="140dp"
+            android:layout_marginEnd="140dp"
+            android:id="@+id/mkt_cap_title_textview"/>
+
+        <TextView
+            android:text="@string/detail_pe_ratio_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/mkt_cap_title_textview"
+            android:layout_alignLeft="@+id/mkt_cap_title_textview"
+            android:layout_alignStart="@+id/mkt_cap_title_textview"
+            android:id="@+id/pe_ratio_title_textview"/>
+
+        <TextView
+            android:text="@string/detail_div_yield_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/low_value_textview"
+            android:layout_alignLeft="@+id/pe_ratio_title_textview"
+            android:layout_alignStart="@+id/pe_ratio_title_textview"
+            android:id="@+id/div_yield_title_textview"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingRight="19dp"
+            android:paddingEnd="19dp"
+            android:id="@+id/mkt_cap_value_textview"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/pe_ratio_title_textview"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingRight="19dp"
+            android:paddingEnd="19dp"
+            android:id="@+id/pe_ratio_value_textview"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/pe_ratio_value_textview"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:paddingRight="19dp"
+            android:paddingEnd="19dp"
+            android:id="@+id/div_yield_value_textview"/>
+
+    </RelativeLayout>
+
+</LinearLayout>
